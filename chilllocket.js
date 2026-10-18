@@ -654,6 +654,44 @@ if (ua.includes("Locket")) {
                     { overlay_id: "caption:tuyen_duong", source: "remote", caption: { background: { colors: ["#D94A77", "#B82D59"] }, icon: { data: "checkmark.seal.fill", type: "sf_symbol" }, max_lines: 1, text: "Locket tuyên dương bạn cute", text_color: "#FFFFFF", type: "static_content" } },
                 ]
             },
+            {
+                section: "TÂM TRẠNG & SUY",
+                items: [
+                    { overlay_id: "caption:ngoai_gia_nhung_nang_long", source: "remote", caption: { background: { colors: ["#2C3E50", "#4CA1AF"] }, icon: { data: "🌧️", type: "emoji" }, max_lines: 1, text: "ngoài giả vờ trưởng thành, trong âm thầm vụn vỡ", text_color: "#FFFFFFE6", type: "static_content" } },
+                    { overlay_id: "caption:ap_luc_nhung_im_lang", source: "remote", caption: { background: { colors: ["#141E30", "#243B55"] }, icon: { data: "🎧", type: "emoji" }, max_lines: 1, text: "im lặng không phải là ổn, mà là chẳng biết kể cùng ai", text_color: "#FFFFFFE6", type: "static_content" } },
+                    { overlay_id: "caption:chua_lanh", source: "remote", caption: { background: { colors: ["#D4FC79", "#96E6A1"] }, icon: { data: "🌱", type: "emoji" }, max_lines: 1, text: "đi chữa lành nhưng ví rách lành chưa?", text_color: "#1B4332", type: "static_content" } },
+                    { overlay_id: "caption:dem_nao_cung_suy", source: "remote", caption: { background: { colors: ["#0F2027", "#203A43", "#2C5364"] }, icon: { data: "🌙", type: "emoji" }, max_lines: 1, text: "ban ngày cười nói, ban đêm suy tới sáng", text_color: "#FFFFFFE6", type: "static_content" } },
+                    { overlay_id: "caption:tuoi_tre_chua_kip_chill", source: "remote", caption: { background: { colors: ["#E0C3FC", "#8EC5FC"] }, icon: { data: "😮‍💨", type: "emoji" }, max_lines: 1, text: "lớn rồi mới biết, bình yên đắt giá đến nhường nào", text_color: "#2B2D42", type: "static_content" } },
+                    { overlay_id: "caption:overthinking", source: "remote", caption: { background: { colors: ["#4B6CB7", "#182848"] }, icon: { data: "🌀", type: "emoji" }, max_lines: 1, text: "bề ngoài vô tư, bên trong overthinking", text_color: "#FFFFFFE6", type: "static_content" } },
+                    { overlay_id: "caption:chi_muon_bien_mat", source: "remote", caption: { background: { colors: ["#8E9EAB", "#EEF2F3"] }, icon: { data: "🌫️", type: "emoji" }, max_lines: 1, text: "có những ngày chỉ muốn tắt nguồn cả thế giới", text_color: "#2C3E50", type: "static_content" } },
+                    { overlay_id: "caption:nguoi_la_tung_quen", source: "remote", caption: { background: { colors: ["#3A1C71", "#D76D77", "#FFAF7B"] }, icon: { data: "🥀", type: "emoji" }, max_lines: 1, text: "từ người thương hóa người dưng ngược lối", text_color: "#FFFFFFE6", type: "static_content" } },
+                    { overlay_id: "caption:co_don_giua_pho", source: "remote", caption: { background: { colors: ["#1F1C2C", "#928DAB"] }, icon: { data: "🌃", type: "emoji" }, max_lines: 1, text: "thành phố thì lớn, mà sao lòng mình chật chội thế", text_color: "#FFFFFFE6", type: "static_content" } },
+                    { overlay_id: "caption:mot_minh_van_on", source: "remote", caption: { background: { colors: ["#F6D365", "#FDA085"] }, icon: { data: "☕", type: "emoji" }, max_lines: 1, text: "một mình cũng tốt, đỡ phải mong chờ", text_color: "#5C2A1A", type: "static_content" } },
+                    { overlay_id: "caption:เหนื่อย_met_moi", source: "remote", caption: { background: { colors: ["#C9D6FF", "#E2E2E2"] }, icon: { data: "🔋", type: "emoji" }, max_lines: 1, text: "năng lượng cạn kiệt, cần một cái ôm", text_color: "#333533", type: "static_content" } },
+                    { overlay_id: "caption:dung_giao_tiep", source: "remote", caption: { background: { colors: ["#434343", "#000000"] }, icon: { data: "🔕", type: "emoji" }, max_lines: 1, text: "tạm ngưng kết nối, xin đừng làm phiền", text_color: "#FFFFFFE6", type: "static_content" } },
+                    ]
+            },
+            {
+                section:"Lyric music",
+                items :[
+                    { overlay_id: "caption:lyric_dung_lam_trai_tim_anh_dau", source: "remote", caption: { background: { colors: ["#FF9A9E", "#FECFEF"] }, icon: { data: "💔", type: "emoji" }, max_lines: 1, text: "Đừng làm trái tim anh đau...", text_color: "#6B1D2F", type: "static_content" } },
+                    { overlay_id: "caption:lyric_binh_yen", source: "remote", caption: { background: { colors: ["#A1C4FD", "#C2E9FB"] }, icon: { data: "🍃", type: "emoji" }, max_lines: 1, text: "Bình yên một thoáng cho tim mềm...", text_color: "#1D3557", type: "static_content" } },
+                    { overlay_id: "caption:lyric_mong_yu", source: "remote", caption: { background: { colors: ["#A18CD1", "#FBC2EB"] }, icon: { data: "☁️", type: "emoji" }, max_lines: 1, text: "Hẹn gặp lại anh ở trong những giấc mơ", text_color: "#4A2545", type: "static_content" } },
+                    { overlay_id: "caption:lyric_tung_quen", source: "remote", caption: { background: { colors: ["#667EEA", "#764BA2"] }, icon: { data: "🎵", type: "emoji" }, max_lines: 1, text: "Giờ thì mình là ai trong cuộc đời nhau?", text_color: "#FFFFFFE6", type: "static_content" } },
+                    { overlay_id: "caption:lyric_nhung_loi_hua_bo_quen", source: "remote", caption: { background: { colors: ["#B79891", "#94716B"] }, icon: { data: "🍂", type: "emoji" }, max_lines: 1, text: "Những lời hứa bỏ quên...", text_color: "#FFFFFFE6", type: "static_content" } },
+                    { overlay_id: "caption:lyric_sau_con_mua", source: "remote", caption: { background: { colors: ["#4CA1AF", "#C4E0E5"] }, icon: { data: "🌧️", type: "emoji" }, max_lines: 1, text: "Trời lại nắng sau cơn mưa mà...", text_color: "#1B3B44", type: "static_content" } },
+                    { overlay_id: "caption:lyric_thien_ly_oi", source: "remote", caption: { background: { colors: ["#FDFCFB", "#E2D1C3"] }, icon: { data: "🌼", type: "emoji" }, max_lines: 1, text: "Thiên lý ơi, em có thể ở lại đây không?", text_color: "#5C4033", type: "static_content" } },
+                    { overlay_id: "caption:lyric_cat_doi_noi_sau", source: "remote", caption: { background: { colors: ["#232526", "#414345"] }, icon: { data: "✂️", type: "emoji" }, max_lines: 1, text: "Cắt đôi nỗi sầu, anh buông tay cắt đôi nỗi sầu", text_color: "#FFFFFFE6", type: "static_content" } },
+                    { overlay_id: "caption:lyric_id_072019", source: "remote", caption: { background: { colors: ["#2B5876", "#4E4376"] }, icon: { data: "⏳", type: "emoji" }, max_lines: 1, text: "Có người đứng từ xa chờ em về...", text_color: "#FFFFFFE6", type: "static_content" } },
+                    { overlay_id: "caption:lyric_cho_toi_di_theo", source: "remote", caption: { background: { colors: ["#FFECD2", "#FCB69F"] }, icon: { data: "🌅", type: "emoji" }, max_lines: 1, text: "Cho tôi đi theo với, nơi anh đi về...", text_color: "#6B2D18", type: "static_content" } },
+                    { overlay_id: "caption:lyric_co_em", source: "remote", caption: { background: { colors: ["#FF9A9E", "#FAD0C4"] }, icon: { data: "🌷", type: "emoji" }, max_lines: 1, text: "Từ ngày có em về, nhà mình toàn ánh trăng thề", text_color: "#73222B", type: "static_content" } },
+                    { overlay_id: "caption:lyric_exit_sign", source: "remote", caption: { background: { colors: ["#000000", "#130F40"] }, icon: { data: "🚪", type: "emoji" }, max_lines: 1, text: "Bởi vì anh đã tìm được lối thoát cho riêng mình...", text_color: "#FFFFFFE6", type: "static_content" } },
+                    { overlay_id: "caption:lyric_khong_the_say", source: "remote", caption: { background: { colors: ["#3E5151", "#DECBA4"] }, icon: { data: "🥃", type: "emoji" }, max_lines: 1, text: "Anh đã cố để quên em mà không thể say", text_color: "#FFFFFFE6", type: "static_content" } },
+                    { overlay_id: "caption:lyric_hen_gap_em_duoi_anh_trang", source: "remote", caption: { background: { colors: ["#141E30", "#2A5298"] }, icon: { data: "🌕", type: "emoji" }, max_lines: 1, text: "Hẹn gặp em dưới ánh trăng...", text_color: "#FFFFFFE6", type: "static_content" } },
+                    { overlay_id: "caption:lyric_no_in_my_eyes", source: "remote", caption: { background: { colors: ["#536976", "#292E49"] }, icon: { data: "👀", type: "emoji" }, max_lines: 1, text: "Nhìn vào đôi mắt em, thấy cả bầu trời...", text_color: "#FFFFFFE6", type: "static_content" } },
+                    { overlay_id: "caption:lyric_chuyen_doi_ta", source: "remote", caption: { background: { colors: ["#D3CCE3", "#E9E4F0"] }, icon: { data: "📖", type: "emoji" }, max_lines: 1, text: "Chuyện đôi ta như những thước phim quay chậm", text_color: "#3F3351", type: "static_content" } }
+                    ]
+            },
         ])
     });
 }
