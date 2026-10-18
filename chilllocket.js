@@ -674,10 +674,7 @@ if (ua.includes("Locket")) {
             {
                 section:"Lyric music",
                 items :[
-                    // Bản ngắn gọn vừa khung 1 dòng
                     { overlay_id: "caption:lyric_vi_ham_me_giau_sang", source: "remote", caption: { background: { colors: ["#200122", "#6F0000"] }, icon: { data: "💸", type: "emoji" }, max_lines: 1, text: "Vì ham mê giàu sang, Kiều bán đi hạnh phúc đời mình", text_color: "#FFFFFFE6", type: "static_content" } },
-
-                    // Bản tách vế đầu (nếu thích ngắn, súc tích)
                     { overlay_id: "caption:lyric_vi_ham_me_giau_sang_ngan", source: "remote", caption: { background: { colors: ["#232526", "#414345"] }, icon: { data: "🥀", type: "emoji" }, max_lines: 1, text: "Vì ham mê giàu sang...", text_color: "#FFD700", type: "static_content" } },
                     { overlay_id: "caption:lyric_dung_lam_trai_tim_anh_dau", source: "remote", caption: { background: { colors: ["#FF9A9E", "#FECFEF"] }, icon: { data: "💔", type: "emoji" }, max_lines: 1, text: "Đừng làm trái tim anh đau...", text_color: "#6B1D2F", type: "static_content" } },
                     { overlay_id: "caption:lyric_binh_yen", source: "remote", caption: { background: { colors: ["#A1C4FD", "#C2E9FB"] }, icon: { data: "🍃", type: "emoji" }, max_lines: 1, text: "Bình yên một thoáng cho tim mềm...", text_color: "#1D3557", type: "static_content" } },
