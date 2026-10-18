@@ -8,7 +8,7 @@ const mapping = {
 var ua = $request.headers["User-Agent"] || $request.headers["user-agent"],
   obj = JSON.parse($response.body);
 obj.Attention = "Chúc mừng bạn! Đã lên locket prenium !";
-var duyvinh09 = {
+var btuuuad = {
       auto_resume_date: null,
       display_name: "locket_1600_1y",
       is_sandbox: true,
