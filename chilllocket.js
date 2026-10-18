@@ -49,7 +49,7 @@ if (ua.includes("Locket")) {
                 {
                     title: "Locket Tú Bỉm mãi sẵn sàng ✨",
                     body: "Siu Siu iu 💛",
-                    imageURL: "https://ibb.co/XZKrFrt0"
+                    imageURL: "https://i.ibb.co/9LRn7VY/DORAEMON.jpg"
                 }
             ],
             primary_button_title: "Xong",
