@@ -1,3 +1,6 @@
+#!name=locket
+#Shadowrocket Configuration - locket
+
 [General]
 bypass-system = true
 skip-proxy = *.local, *.crashlytics.com
