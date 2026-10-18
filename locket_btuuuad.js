@@ -4,7 +4,7 @@ const mapping = {
   'Locket': ['Gold']
 };
 // =========   Phần cố định  ========= // 
-// =========  @duyvinh09 ========= // 
+// =========  @btuuuad ========= // 
 var ua = $request.headers["User-Agent"] || $request.headers["user-agent"],
   obj = JSON.parse($response.body);
 obj.Attention = "Chúc mừng bạn! Đã lên locket prenium !";
