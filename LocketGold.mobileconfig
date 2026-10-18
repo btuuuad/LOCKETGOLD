@@ -9,7 +9,7 @@
     <string>Hồ sơ cầu hình VIP chặn thu hồi Locket Gold vĩnh viễn.&#10;@btuuuad</string>
 
     <key>PayloadIdentifier</key>
-    <string>com.duyvinh09.locketgold.profile</string>
+    <string>com.tupim.locketgold.profile</string>
 
     <key>PayloadScope</key>
     <string>System</string>
@@ -24,7 +24,7 @@
     <integer>1</integer>
 
     <key>PayloadOrganization</key>
-    <string>Đinh Duy Vinh</string>
+    <string>Chu Anh Tu</string>
 
     <key>PayloadContent</key>
     <array>
