@@ -44,12 +44,12 @@ if (ua.includes("Locket")) {
             tag: "LOCKET GOLD",
             tag_gradient: true,
             tag_style: "gold_gradient",
-            title: "Lên Locket Gold rồi đó 😎",
+            title: "Lên Locket Gold rồi đó cục zàng 😎",
             feature_set: [
                 {
                     title: "Locket Tú Bỉm mãi sẵn sàng ✨",
                     body: "Siu Siu iu 💛",
-                    imageURL: "https://i.ibb.co/gZ6HkyWT/L-n-Gold-R-i.png"
+                    imageURL: "https://ibb.co/XZKrFrt0"
                 }
             ],
             primary_button_title: "Xong",
@@ -61,8 +61,7 @@ if (ua.includes("Locket")) {
         android_subscribe_gold_button_enabled: "false",
         profile_badge_visible: "true",
         lunar_new_year_app_icon_enabled: "true",
-        settings_instagram_url: "https://www.instagram.com/dvinh.09/",
-        settings_tiktok_url: "https://tiktok.com/@duyvinh.09"
+    
     });
 
     // ============================================================
@@ -394,7 +393,7 @@ if (ua.includes("Locket")) {
             {
                 section: "🎨 Decorative by Tu Bim",
                 items: [
-                    { overlay_id: "caption:Tubim", source: "remote", alt_text: "Tubim07", caption: { background: { image: { type: "image", data: "https://i.ibb.co/svX6CPFw/bia.png", source: "url" }, colors: ["#B8E7FF", "#A8F5D0", "#DCCBFF"] }, icon: { data: "person.fill", type: "sf_symbol", color: "#183153" }, max_lines: 1, text: "duyvinh09", text_color: "#183153", type: "static_content" } },
+                    { overlay_id: "caption:Tubim08", source: "remote", alt_text: "Tubim07", caption: { background: { image: { type: "image", data: "https://i.ibb.co/svX6CPFw/bia.png", source: "url" }, colors: ["#B8E7FF", "#A8F5D0", "#DCCBFF"] }, icon: { data: "person.fill", type: "sf_symbol", color: "#183153" }, max_lines: 1, text: "duyvinh09", text_color: "#183153", type: "static_content" } },
                     { overlay_id: "caption:cu", source: "remote", caption: { background: { colors: ["#FFD6A5", "#FFF1A8", "#FFC4D6"] }, max_lines: 1, text: "Cu 🐎", text_color: "#633B24", type: "static_content" } },
                     { overlay_id: "caption:tuat", source: "remote", caption: { background: { colors: ["#2C1A0E", "#5D4037", "#D7A86E"] }, icon: { data: "🐕", type: "emoji" }, max_lines: 1, text: "Tuất", text_color: "#FFFFFFE6", type: "static_content" } },
                     { overlay_id: "caption:snake_vibes", source: "remote", caption: { background: { colors: ["#2E7D32", "#66BB6A"] }, icon: { data: "🐍", type: "emoji" }, max_lines: 1, text: "Snake Vibes", localized_text: { en: "Snake Vibes", vn: "Chất rắn" }, text_color: "#FFFFFFE6", type: "static_content" } },
