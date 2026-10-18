@@ -24,7 +24,7 @@ var duyvinh09 = {
       grace_period_expires_date: null,
       refunded_at: null,
       unsubscribe_detected_at: null,
-      original_purchase_date: "2005-01-09T10:10:15Z",
+      original_purchase_date: "2007-03-12T10:10:15Z",
       purchase_date: "2007-03-12T10:10:14Z",
       store: "app_store",
       store_transaction_id: "2000001108724193",
