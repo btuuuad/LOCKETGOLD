@@ -1,3 +1,6 @@
+#!name=locket-Tubim
+#Shadowrocket Configuration - locket-Tubim
+
 [General]
 bypass-system = true
 skip-proxy = *.local, *.crashlytics.com
