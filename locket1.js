@@ -185,9 +185,7 @@ if (ua.includes("Locket")) {
         friend_limit_geo_override: JSON.stringify({ experiments: {}, area_code_overrides: {} }),
         // Nâng cấp Mốc tương tác thành Hệ thống Rank
         friends_sheet_locket_count_config: JSON.stringify({ items: [ { threshold: 0, icon_name: "heart" }, { threshold: 1, icon_name: "heart.fill" }, { threshold: 10, emoji: "🥉 Đồng" }, { threshold: 50, emoji: "🥈 Bạc" }, { threshold: 150, emoji: "🥇 Vàng" }, { threshold: 300, emoji: "💎 Kim Cương" }, { threshold: 500, emoji: "👑 Cao Thủ" }, { threshold: 1000, emoji: "🐉 Thách Đấu" }, { threshold: 2000, emoji: "🌌 Chí Tôn" }, { threshold: 5000, emoji: "⚡ Bất Tử ⚡" } ]}),
-        friend_locket_count_config: JSON.stringify({ items: [ { threshold: 0, icon_name: "heart" }, { threshold: 1, icon_name: "heart.fill" }, { threshold: 10, emoji: "🤍" }, { threshold: 100, emoji: "💛" }, { threshold: 500, emoji: "❤️‍🔥" }, { threshold: 1000, emoji: "✨💗✨" }, { threshold: 2000, emoji: "✨️⭐️✨" }, { threshold: 5000, emoji: "✨💎✨" }, { threshold: 10000, emoji: "✨🔐💛✨" } ]}),
-        // Custom thanh thả cảm xúc nhanh (Quick Reactions)
-        moment_reactions_default_emojis: JSON.stringify(["❤️‍🔥", "🗿", "🤡", "🥺", "🫦", "💸", "👑", "🏎️"]),
+        friend_locket_count_config: JSON.stringify({ items: [ { threshold: 0, icon_name: "heart" }, { threshold: 1, icon_name: "heart.fill" }, { threshold: 10, emoji: "🥉 Đồng" }, { threshold: 50, emoji: "🥈 Bạc" }, { threshold: 150, emoji: "🥇 Vàng" }, { threshold: 300, emoji: "💎 Kim Cương" }, { threshold: 500, emoji: "👑 Cao Thủ" }, { threshold: 1000, emoji: "🐉 Thách Đấu" }, { threshold: 2000, emoji: "🌌 Chí Tôn" }, { threshold: 5000, emoji: "⚡ Bất Tử ⚡" } ]}),
         reaction_tray_emojis: JSON.stringify(["❤️‍🔥", "🗿", "🤡", "🥺", "🫦", "💸", "👑", "🏎️", "😭", "🔥"]),
         // Mở khóa giao diện màu Camera
         camera_themes_enabled: "true",
