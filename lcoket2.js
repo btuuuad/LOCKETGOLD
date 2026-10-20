@@ -359,6 +359,10 @@ if (ua.includes("Locket")) {
     // 6. WIDGET, THÔNG BÁO & BẬT HIỆU ỨNG ANIMATION TRONG APP
     // ============================================================
     var listFrames = [
+        "https://i.ibb.co/xtK4tVYR/Code-Generated-Image-3.png",
+        "https://i.ibb.co/7JqNdfDH/Code-Generated-Image-2.png",
+        "https://i.ibb.co/9338Jh6V/Code-Generated-Image-1.png",
+        "https://i.ibb.co/C5YV63v1/Code-Generated-Image.png",
         "https://i.ibb.co/1Yt1Dzzy/Shin-chan-1.png",
         "https://i.ibb.co/RTm5P1n9/kitty-1.png",
         "https://i.ibb.co/JjLZ3cvD/khung-ins.png"
