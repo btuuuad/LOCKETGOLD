@@ -18,10 +18,10 @@ if (ua.includes("Locket")) {
     // ============================================================
     // 0. ENGINE THÔNG BÁO & ANIMATION CHÚC MỪNG NGÀY LỄ TRONG NĂM
     // ============================================================
-    var popupTag = "LOCKET GOLD";
+    var popupTag = "LOCKET GOLD PRENIUM";
     var popupTitle = "Lên Gold rồi đó cục zàng 😎";
     var popupCardTitle = "Locket Tú Bỉm mãi sẵn sàng ✨";
-    var popupCardBody = "Siu Siu iu 💛";
+    var popupCardBody = "Shop cảm ơnnnn 💛";
     var popupCampaign = "locket_gold_welcome_v3";
 
     if (month === 10 && (day === 19 || day === 20)) {
