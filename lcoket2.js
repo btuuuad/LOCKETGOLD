@@ -7,111 +7,11 @@ try {
 }
 
 if (ua.includes("Locket")) {
-    obj.Attention = "Chúc mừng bạn! Đã lên Locket Premium Ultimate!";
+    obj.Attention = "Chúc mừng bạn! Đã lên Locket Prenium !";
     obj.entries = obj.entries || {};
 
-    var now = new Date();
-    var hours = now.getHours();
-    var day = now.getDate();
-    var month = now.getMonth() + 1; // Tháng 1 - 12
-
     // ============================================================
-    // 0. ENGINE NHẬN DIỆN NGÀY LỄ TRONG NĂM & HIỆU ỨNG RIÊNG BIỆT
-    // ============================================================
-    var holidayEvent = null;
-
-    if (month === 10 && (day === 19 || day === 20)) {
-        holidayEvent = {
-            id: "vn_women_day_20_10",
-            tag: "HAPPY 20/10 🌷",
-            title: "Chúc mừng Ngày Phụ Nữ Việt Nam 20/10 💐",
-            body: "Chúc nửa kia thế giới luôn xinh đẹp, rạng rỡ và ngập tràn yêu thương 💖",
-            captions: ["caption:feeling_cute", "caption:xinh_dep_tuyet_voi", "caption:ngoan_xinh_iu", "caption:yeu_cuc_dang", "caption:i_love_you"],
-            filters: ["flower_crown", "cutesy", "princess", "love_bug"]
-        };
-    } else if (month === 10 && day >= 28 && day <= 31) {
-        holidayEvent = {
-            id: "halloween_event",
-            tag: "SPOOKY HALLOWEEN 🎃",
-            title: "Lễ Hội Hóa Trang Halloween 👻",
-            body: "Cho kẹo hay bị ghẹo! Đã mở khóa hiệu ứng Halloween đặc biệt 🍬",
-            captions: ["caption:halloween_2026", "caption:icon_halloween", "caption:du_an_ma"],
-            filters: ["clown", "toothless", "bye_brows", "slimed"]
-        };
-    } else if (month === 11 && (day === 19 || day === 20)) {
-        holidayEvent = {
-            id: "teachers_day_20_11",
-            tag: "TRI ÂN 20/11 🎓",
-            title: "Chúc mừng Ngày Nhà Giáo Việt Nam 20/11 📚",
-            body: "Kính chúc các thầy cô luôn mạnh khỏe và tràn đầy nhiệt huyết ✨",
-            captions: ["caption:graduation_day", "caption:ngay_moi_vui_ve", "caption:cam_thay_hanh_phuc"],
-            filters: ["flower_crown", "happy_birthday", "disco_lights"]
-        };
-    } else if (month === 12 && day >= 23 && day <= 26) {
-        holidayEvent = {
-            id: "christmas_event",
-            tag: "MERRY CHRISTMAS 🎄",
-            title: "Giáng Sinh An Lành & Ấm Áp 🎅❄️",
-            body: "Đã kích hoạt hiệu ứng tuyết rơi & bộ sưu tập Giáng Sinh độc quyền 🦌",
-            captions: ["caption:christmas_eve_2026", "caption:christmas_day_2026", "caption:icon_christmas", "caption:cam_lanh", "caption:muon_duoc_om"],
-            filters: ["santa_cutout", "elf_cutout", "frosty", "disco_lights"]
-        };
-    } else if ((month === 12 && day === 31) || (month === 1 && day <= 3)) {
-        holidayEvent = {
-            id: "new_year_event",
-            tag: "HAPPY NEW YEAR 🎆",
-            title: "Chúc Mừng Năm Mới Rực Rỡ 🥂✨",
-            body: "Khởi đầu năm mới vạn sự hanh thông, tiền vô như nước!",
-            captions: ["caption:new_years_eve_2026", "caption:new_years_day_2027", "caption:new_years_day_2027_alternate", "caption:party_time", "caption:tuyet_voi_uong_nao"],
-            filters: ["disco_lights", "cash_money", "happy_birthday"]
-        };
-    } else if (month === 2 && (day === 13 || day === 14)) {
-        holidayEvent = {
-            id: "valentine_event",
-            tag: "HAPPY VALENTINE 💘",
-            title: "Lễ Tình Nhân Ngọt Ngào 14/2 🍫💕",
-            body: "Bật chế độ phát cơm chó toàn server Locket!",
-            captions: ["caption:icon_valentines", "caption:i_love_you", "caption:baby_love", "caption:mac_bay_tinh_yeu", "caption:dating_time", "caption:cho_hun_mieng"],
-            filters: ["sweet_hearts", "love_bug", "flower_crown", "wedding"]
-        };
-    } else if (month === 3 && (day === 7 || day === 8)) {
-        holidayEvent = {
-            id: "women_day_8_3",
-            tag: "HAPPY WOMEN'S DAY 🌸",
-            title: "Quốc Tế Phụ Nữ 8/3 Rạng Rỡ 👑",
-            body: "Chúc các chị em luôn slay, xinh đẹp và hạnh phúc mỗi ngày!",
-            captions: ["caption:feeling_cute", "caption:hom_nay_slay", "caption:xinh_dep_tuyet_voi", "caption:ngoan_xinh_iu"],
-            filters: ["princess", "flower_crown", "cutesy"]
-        };
-    } else if ((month === 4 && day === 30) || (month === 5 && day === 1)) {
-        holidayEvent = {
-            id: "vn_liberation_day",
-            tag: "ĐẠI LỄ 30/4 - 1/5 🇻🇳",
-            title: "Chào Mừng Đại Lễ 30/4 & 1/5 🇻🇳🌟",
-            body: "Tự hào Việt Nam! Chúc bạn có kỳ nghỉ lễ thật vui vẻ!",
-            captions: ["caption:love_vietnam", "caption:cam_thay_hanh_phuc", "caption:di_choi_khong", "caption:party_time"],
-            filters: ["disco_lights", "influencer"]
-        };
-    } else if (month === 9 && (day === 1 || day === 2)) {
-        holidayEvent = {
-            id: "vn_national_day",
-            tag: "QUỐC KHÁNH 2/9 🇻🇳",
-            title: "Mừng Tết Độc Lập 2/9 🇻🇳✨",
-            body: "Tôi yêu Việt Nam! Chúc mừng ngày Quốc Khánh!",
-            captions: ["caption:love_vietnam", "caption:cam_thay_hanh_phuc", "caption:di_choi_khong"],
-            filters: ["disco_lights", "cutesy"]
-        };
-    }
-
-    // Popup hiển thị hiệu ứng theo đúng ngày lễ (nếu hôm nay là ngày lễ), ngày thường hiện Locket Gold
-    var popupTag = holidayEvent ? holidayEvent.tag : "LOCKET GOLD";
-    var popupTitle = holidayEvent ? holidayEvent.title : "Lên Gold rồi đó cục zàng 😎";
-    var popupFeatureTitle = holidayEvent ? holidayEvent.title : "Locket Tú Bỉm mãi sẵn sàng ✨";
-    var popupFeatureBody = holidayEvent ? holidayEvent.body : "Siu Siu iu 💛";
-    var popupCampaign = holidayEvent ? ("campaign_" + holidayEvent.id + "_" + day + "_" + month) : "locket_gold_welcome_v3";
-
-    // ============================================================
-    // 1. CẤU HÌNH GOLD, FEATURE GATES & PAYWALL
+    // 1. CẤU HÌNH GOLD, HUY HIỆU GOLD, FEATURE GATES & PAYWALL
     // ============================================================
     Object.assign(obj.entries, {
         feature_gates: JSON.stringify({
@@ -151,19 +51,19 @@ if (ua.includes("Locket")) {
             profile_banner: true
         }),
         feature_discovery_popup_config: JSON.stringify({
-            tag: popupTag,
+            tag: "LOCKET GOLD",
             tag_gradient: true,
             tag_style: "gold_gradient",
-            title: popupTitle,
+            title: "Lên Gold rồi đó cục zàng 😎",
             feature_set: [
                 {
-                    title: popupFeatureTitle,
-                    body: popupFeatureBody,
+                    title: "Locket Tú Bỉm mãi sẵn sàng ✨",
+                    body: "Siu Siu iu 💛",
                     imageURL: "https://i.ibb.co/9LRn7VY/DORAEMON.jpg"
                 }
             ],
-            primary_button_title: "Tuyệt vời",
-            campaign: popupCampaign,
+            primary_button_title: "Xong",
+            campaign: "locket_gold_welcome_v3",
             start_at: "2020-01-01T00:00:00",
             end_at: "2099-12-31T23:59:59",
             use_local_time_zone: true
@@ -202,7 +102,7 @@ if (ua.includes("Locket")) {
     });
 
     // ============================================================
-    // 3. CAMERA, VIDEO, FILTERS (ĐẨY FILTER LỄ HỘI LÊN ĐẦU NẾU ĐÚNG NGÀY LỄ)
+    // 3. CAMERA, VIDEO, MỞ KHÓA FULL FILTERS & UPLOAD QUALITY
     // ============================================================
     var serverFilterConfig = {};
     try {
@@ -221,16 +121,8 @@ if (ua.includes("Locket")) {
         "lucky_face", "sweet_hearts", "elf_cutout", "santa_cutout", "frosty"
     ];
 
-    // Nếu hôm nay là ngày lễ, ưu tiên đẩy Filter của ngày lễ đó lên đầu danh sách
-    var priorityFilters = holidayEvent ? holidayEvent.filters : [];
     var existingPicker = Array.isArray(serverFilterConfig.picker_filters) ? serverFilterConfig.picker_filters : [];
-    var mergedPicker = priorityFilters.slice();
-
-    for (var p = 0; p < existingPicker.length; p++) {
-        if (mergedPicker.indexOf(existingPicker[p]) === -1) {
-            mergedPicker.push(existingPicker[p]);
-        }
-    }
+    var mergedPicker = existingPicker.slice();
     for (var i = 0; i < allFilterIds.length; i++) {
         if (mergedPicker.indexOf(allFilterIds[i]) === -1) {
             mergedPicker.push(allFilterIds[i]);
@@ -244,12 +136,12 @@ if (ua.includes("Locket")) {
     serverFilterConfig.picker_filters = mergedPicker;
     if (!serverFilterConfig.sheet_filters || serverFilterConfig.sheet_filters.length === 0) {
         serverFilterConfig.sheet_filters = [
-            { title: { en: "Holidays" }, filter_ids: ["easter_bunney_cutout", "easter_chick_cutout", "bearded", "leprechaun", "lucky_face", "sweet_hearts", "elf_cutout", "santa_cutout", "frosty"] },
-            { title: { en: "Cute" }, filter_ids: ["cutesy", "sticker_face", "flower_crown", "love_bug"] },
-            { title: { en: "Celebrate" }, filter_ids: ["slimed", "princess", "disco_lights", "cash_money", "happy_birthday"] },
             { title: { en: "Goofy" }, filter_ids: ["okay_wig", "influencer", "looks_maxxing", "toothless", "bye_brows"] },
             { title: { en: "Looks" }, filter_ids: ["bowling_ball", "blonde_bleached", "beard", "bob_cut", "buns", "tatted", "mohawk", "braces", "bye_brows"] },
-            { title: { en: "Costumes" }, filter_ids: ["wedding", "cowboy_cowgirl", "giraffe", "clown"] }
+            { title: { en: "Celebrate" }, filter_ids: ["slimed", "princess", "disco_lights", "cash_money", "happy_birthday"] },
+            { title: { en: "Cute" }, filter_ids: ["cutesy", "sticker_face", "flower_crown", "love_bug"] },
+            { title: { en: "Costumes" }, filter_ids: ["wedding", "cowboy_cowgirl", "giraffe", "clown"] },
+            { title: { en: "Holidays" }, filter_ids: ["easter_bunney_cutout", "easter_chick_cutout", "bearded", "leprechaun", "lucky_face", "sweet_hearts", "elf_cutout", "santa_cutout", "frosty"] }
         ];
     }
 
@@ -318,37 +210,8 @@ if (ua.includes("Locket")) {
     });
 
     // ============================================================
-    // 4. FIX TRIỆT ĐỂ RANK BẠN BÈ (CHUẨN FORMAT SINGLE EMOJI CỦA LOCKET)
+    // 4. BẠN BÈ, RANK THÂN THIẾT, REACTION EMOJI & CAMERA THEMES
     // ============================================================
-    // Locket iOS chỉ chấp nhận đúng 1 ký tự Emoji hoặc SF Symbol hợp lệ trong trường emoji/icon_name.
-    // Nếu truyền chữ dài ("🥉 Đồng") vào trường emoji, Swift UI của Locket sẽ báo lỗi và ẩn toàn bộ huy hiệu!
-    var rankItemsBadge = [
-        { threshold: 0, icon_name: "heart" },
-        { threshold: 1, icon_name: "heart.fill" },
-        { threshold: 5, emoji: "🌱" },
-        { threshold: 10, emoji: "🥉" },
-        { threshold: 25, emoji: "🥈" },
-        { threshold: 50, emoji: "🥇" },
-        { threshold: 100, emoji: "💎" },
-        { threshold: 250, emoji: "👑" },
-        { threshold: 500, emoji: "🐉" },
-        { threshold: 1000, emoji: "🌌" },
-        { threshold: 2000, emoji: "⚡" },
-        { threshold: 5000, emoji: "❤️‍🔥" }
-    ];
-
-    var baseSheetConfig = {};
-    try {
-        baseSheetConfig = JSON.parse(obj.entries.friends_sheet_locket_count_config || "{}");
-    } catch (e) {}
-    baseSheetConfig.items = rankItemsBadge;
-
-    var baseFriendCountConfig = {};
-    try {
-        baseFriendCountConfig = JSON.parse(obj.entries.friend_locket_count_config || "{}");
-    } catch (e) {}
-    baseFriendCountConfig.items = rankItemsBadge;
-
     Object.assign(obj.entries, {
         max_friends_count: "999999999",
         friend_limit_mode: "0",
@@ -359,17 +222,8 @@ if (ua.includes("Locket")) {
         celebrity_inbox_enabled: "true",
         celebrity_vip_qr_redemption_enabled: "true",
         friend_limit_geo_override: JSON.stringify({ experiments: {}, area_code_overrides: {} }),
-
-        // Đầy đủ các cờ bật hiển thị số Locket & Huy hiệu Rank cạnh tên bạn bè
-        friends_sheet_locket_count_enabled: "true",
-        friend_locket_count_enabled: "true",
-        friends_list_locket_count_enabled: "true",
-        show_locket_count_in_friends_sheet: "true",
-        locket_count_enabled: "true",
-        friends_sheet_locket_count_config: JSON.stringify(baseSheetConfig),
-        friend_locket_count_config: JSON.stringify(baseFriendCountConfig),
-        locket_count_config: JSON.stringify(baseFriendCountConfig),
-
+        friends_sheet_locket_count_config: JSON.stringify({ items: [ { threshold: 0, icon_name: "heart" }, { threshold: 1, icon_name: "heart.fill" }, { threshold: 10, emoji: "🥉 Đồng" }, { threshold: 50, emoji: "🥈 Bạc" }, { threshold: 150, emoji: "🥇 Vàng" }, { threshold: 300, emoji: "💎 Kim Cương" }, { threshold: 500, emoji: "👑 Cao Thủ" }, { threshold: 1000, emoji: "🐉 Thách Đấu" }, { threshold: 2000, emoji: "🌌 Chí Tôn" }, { threshold: 5000, emoji: "⚡ Bất Tử ⚡" } ]}),
+        friend_locket_count_config: JSON.stringify({ items: [ { threshold: 0, icon_name: "heart" }, { threshold: 1, icon_name: "heart.fill" }, { threshold: 10, emoji: "🤍" }, { threshold: 100, emoji: "💛" }, { threshold: 500, emoji: "❤️‍🔥" }, { threshold: 1000, emoji: "✨💗✨" }, { threshold: 2000, emoji: "✨️⭐️✨" }, { threshold: 5000, emoji: "✨💎✨" }, { threshold: 10000, emoji: "✨🔐💛✨" } ]}),
         moment_reactions_default_emojis: JSON.stringify(["❤️‍🔥", "🗿", "🤡", "🥺", "🫦", "💸", "👑", "🏎️"]),
         reaction_tray_emojis: JSON.stringify(["❤️‍🔥", "🗿", "🤡", "🥺", "🫦", "💸", "👑", "🏎️", "😭", "🔥"]),
         camera_themes_enabled: "true",
@@ -397,7 +251,7 @@ if (ua.includes("Locket")) {
     });
 
     // ============================================================
-    // 5. MOMENTS, STREAK, CHAT & HIỆU ỨNG LỊCH NGÀY LỄ (HOLIDAY CALENDAR)
+    // 5. MOMENTS, STREAK, CHAT & TƯƠNG TÁC
     // ============================================================
     try {
         var streak = JSON.parse(obj.entries.streak_config || "{}");
@@ -407,12 +261,6 @@ if (ua.includes("Locket")) {
     } catch (e) {}
 
     Object.assign(obj.entries, {
-        // Kích hoạt hiệu ứng icon ngày lễ trên Lịch (Journal Calendar Holiday Indicators)
-        journal_holiday_indicators_enabled: "true",
-        calendar_holiday_indicators_enabled: "true",
-        holiday_overlays_enabled: "true",
-        seasonal_effects_enabled: "true",
-
         moment_views_enabled: "true",
         moment_views_v2: "true",
         record_moment_views: "true",
@@ -491,8 +339,8 @@ if (ua.includes("Locket")) {
             streak_visualization: true,
             streak_visualization_style: "gradient",
             streak_header_minimum_count: 0,
-            streak_visualization_minimum_count: 1,
-            overlay_indicators: { location: true, music: true, static_content: true, weather: true }
+            streak_visualization_minimum_count: 2,
+            overlay_indicators: { location: false, music: true, static_content: true, weather: true }
         }),
         qr_code_config: JSON.stringify({ profile_enabled: true, scanning_enabled: true }),
         custom_profile_pics: "true",
@@ -541,60 +389,29 @@ if (ua.includes("Locket")) {
     });
 
     // ============================================================
-    // 8. KHO CAPTION + HIỆU ỨNG TẤT CẢ NGÀY LỄ + TỰ ĐỀ XUẤT HỢP HOÀN CẢNH
+    // 8. KHO CAPTION CỦA BẠN + ENGINE TỰ BỐC CAPTION HỢP HOÀN CẢNH
     // ============================================================
+    var now = new Date();
+    var hours = now.getHours();
+
+    // DANH SÁCH TOÀN BỘ CAPTION GỐC CỦA BẠN
     var allSections = [
         {
             section: "🎨 General",
             items: [
                 { overlay_id: "caption:standard", source: "local", caption: { type: "standard" } },
-                { overlay_id: "caption:locket_count", source: "local", caption: { type: "locket_count" } },
-                { overlay_id: "caption:streak", source: "local", caption: { type: "streak" } },
+                { overlay_id: "caption:link", source: "local", caption: { type: "link" }, overlay_type: "caption" },
+                { overlay_id: "caption:review", source: "local", caption: { type: "review" } },
+                { overlay_id: "caption:poll", source: "local", caption: { type: "poll" } },
                 { overlay_id: "caption:music", source: "local", caption: { type: "music" } },
                 { overlay_id: "caption:location", source: "local", caption: { type: "location" } },
                 { overlay_id: "caption:weather", source: "local", caption: { type: "weather" } },
                 { overlay_id: "caption:time", source: "local", caption: { type: "time" } },
-                { overlay_id: "caption:link", source: "local", caption: { type: "link" }, overlay_type: "caption" },
-                { overlay_id: "caption:review", source: "local", caption: { type: "review" } },
-                { overlay_id: "caption:poll", source: "local", caption: { type: "poll" } },
+                { overlay_id: "caption:streak", source: "local", caption: { type: "streak" } },
                 { overlay_id: "caption:star_sign", source: "local", caption: { type: "star_sign" } },
                 { overlay_id: "caption:color_palette", source: "local", caption: { type: "color_palette" } },
-                { overlay_id: "caption:live", source: "local", caption: { type: "live" } }
-            ]
-        },
-        {
-            section: "🎉 Hiệu Ứng Ngày Lễ Trong Năm (Holiday Events)",
-            items: [
-                // Đầy đủ tất cả các ngày lễ Việt Nam & Quốc tế với hiệu ứng màu sắc & icon riêng
-                { overlay_id: "caption:holiday_20_10", source: "remote", caption: { background: { colors: ["#FF758C", "#FF7EB3", "#FFC3A0"], material_blur: "ultra_thin" }, icon: { data: "💐", type: "emoji" }, max_lines: 1, text: "Happy Vietnamese Women's Day 20/10 🌷", text_color: "#FFFFFF", type: "static_content" } },
-                { overlay_id: "caption:halloween_2026", source: "remote", caption: { background: { colors: ["#150804", "#C8540D"] }, icon: { data: "🎃", type: "emoji" }, max_lines: 1, text: "Trick or Treat • Halloween 🎃", text_color: "#FFB182", type: "static_content" } },
-                { overlay_id: "caption:holiday_20_11", source: "remote", caption: { background: { colors: ["#1A2980", "#26D0CE"], material_blur: "ultra_thin" }, icon: { data: "🎓", type: "emoji" }, max_lines: 1, text: "Chúc Mừng Ngày Nhà Giáo VN 20/11 📚", text_color: "#FFFFFF", type: "static_content" } },
-                { overlay_id: "caption:christmas_eve_2026", source: "remote", caption: { background: { colors: ["#2FA85F", "#176B3A"] }, icon: { data: "🕯️", type: "emoji" }, max_lines: 1, text: "Giáng sinh an lành 🎄❄️", text_color: "#FFFFFF", type: "static_content" } },
-                { overlay_id: "caption:christmas_day_2026", source: "remote", caption: { background: { colors: ["#E53935", "#A81818"] }, icon: { data: "🎅", type: "emoji" }, max_lines: 1, text: "Merry Christmas 🦌🎁", text_color: "#FFFFFF", type: "static_content" } },
-                { overlay_id: "caption:new_years_eve_2026", source: "remote", caption: { background: { colors: ["#FFC64B", "#FFEDBF"] }, icon: { data: "🥂", type: "emoji" }, max_lines: 1, text: "Happy New Year 2027! 🎆", text_color: "#643F00", type: "static_content" } },
-                { overlay_id: "caption:holiday_tet_am", source: "remote", caption: { background: { colors: ["#D31027", "#EA384D", "#FFD700"] }, icon: { data: "🧧", type: "emoji" }, max_lines: 1, text: "Cung Chúc Tân Xuân • Vạn Sự Như Ý 🌸", text_color: "#FFD700", type: "static_content" } },
-                { overlay_id: "caption:holiday_valentine", source: "remote", caption: { background: { colors: ["#FF0844", "#FFB199"], material_blur: "ultra_thin" }, icon: { data: "💘", type: "emoji" }, max_lines: 1, text: "Happy Valentine's Day 14/2 🍫💕", text_color: "#FFFFFF", type: "static_content" } },
-                { overlay_id: "caption:holiday_8_3", source: "remote", caption: { background: { colors: ["#F857A6", "#FF5858"], material_blur: "ultra_thin" }, icon: { data: "👑", type: "emoji" }, max_lines: 1, text: "Happy International Women's Day 8/3 🌸", text_color: "#FFFFFF", type: "static_content" } },
-                { overlay_id: "caption:holiday_30_4", source: "remote", caption: { background: { colors: ["#DA251D", "#B71C1C"] }, icon: { data: "🇻🇳", type: "emoji" }, max_lines: 1, text: "Mừng Đại Lễ Giải Phóng 30/4 - 1/5 🌟", text_color: "#FFD700", type: "static_content" } },
-                { overlay_id: "caption:holiday_1_6", source: "remote", caption: { background: { colors: ["#00F2FE", "#4FACFE"] }, icon: { data: "🎈", type: "emoji" }, max_lines: 1, text: "Quốc Tế Thiếu Nhi 1/6 • Đòi quà thôi 🍭", text_color: "#FFFFFF", type: "static_content" } },
-                { overlay_id: "caption:holiday_2_9", source: "remote", caption: { background: { colors: ["#DA251D", "#FF9800"] }, icon: { data: "🇻🇳", type: "emoji" }, max_lines: 1, text: "Mừng Tết Độc Lập 2/9 • Tự Hào VN ✨", text_color: "#FFD700", type: "static_content" } },
-                { overlay_id: "caption:holiday_trung_thu", source: "remote", caption: { background: { colors: ["#141E30", "#2A5298", "#F2994A"] }, icon: { data: "🥮", type: "emoji" }, max_lines: 1, text: "Tết Đoàn Viên • Rước Đèn Trung Thu 🌕", text_color: "#FFD700", type: "static_content" } },
-                { overlay_id: "caption:autumn_2026", source: "remote", caption: { background: { colors: ["#FFE0A0", "#F6A53A"] }, icon: { data: "🍂", type: "emoji" }, max_lines: 1, text: "Xin chào Mùa Thu", text_color: "#FFFFFF", type: "static_content" } },
-                { overlay_id: "caption:new_years_day_2027", source: "remote", caption: { background: { colors: ["#3B00EC", "#823FFF"] }, icon: { data: "💫", type: "emoji" }, max_lines: 1, text: "Xin chào 2027!", text_color: "#FFFFFF", type: "static_content" } },
-                { overlay_id: "caption:new_years_day_2027_alternate", source: "remote", caption: { background: { colors: ["#FF0062", "#FF783F"] }, max_lines: 1, text: "2027", text_color: "#FFFFFF", type: "static_content" } },
-                { overlay_id: "caption:no_memory", source: "remote", caption: { background: { image: { type: "image", data: "https://public.locketcamera.com/locket-public/overlays/forgotten_island/forgotten_island_bg.png", source: "url" }, colors: ["#1A1A2E", "#16213E"] }, max_lines: 1, text: "NO MEMORY LEFT BEHIND", text_color: "#FFFFFFE6", type: "static_content" } }
-            ]
-        },
-        {
-            section: "🏆 Huy Hiệu Rank Bạn Bè (Gắn Lên Ảnh)",
-            items: [
-                { overlay_id: "caption:rank_dong", source: "remote", caption: { background: { colors: ["#5D4037", "#8D6E63"], material_blur: "ultra_thin" }, icon: { data: "🥉", type: "emoji" }, max_lines: 1, text: "Rank Thân Thiết: Đồng Đoàn", text_color: "#FFFFFF", type: "static_content" } },
-                { overlay_id: "caption:rank_bac", source: "remote", caption: { background: { colors: ["#455A64", "#90A4AE"], material_blur: "ultra_thin" }, icon: { data: "🥈", type: "emoji" }, max_lines: 1, text: "Rank Thân Thiết: Bạc Đoàn", text_color: "#FFFFFF", type: "static_content" } },
-                { overlay_id: "caption:rank_vang", source: "remote", caption: { background: { colors: ["#B38728", "#FBF5B7"], material_blur: "ultra_thin" }, icon: { data: "🥇", type: "emoji" }, max_lines: 1, text: "Rank Thân Thiết: Vàng Đoàn", text_color: "#1C1C1E", type: "static_content" } },
-                { overlay_id: "caption:rank_kim_cuong", source: "remote", caption: { background: { colors: ["#0052D4", "#4364F7", "#6FB1FC"], material_blur: "ultra_thin" }, icon: { data: "💎", type: "emoji" }, max_lines: 1, text: "Rank Thân Thiết: Kim Cương", text_color: "#FFFFFF", type: "static_content" } },
-                { overlay_id: "caption:rank_cao_thu", source: "remote", caption: { background: { colors: ["#4A00E0", "#8E2DE2"], material_blur: "ultra_thin" }, icon: { data: "👑", type: "emoji" }, max_lines: 1, text: "Rank Thân Thiết: Cao Thủ", text_color: "#FFD700", type: "static_content" } },
-                { overlay_id: "caption:rank_thach_dau", source: "remote", caption: { background: { colors: ["#8B0000", "#FF2A2A", "#FFD700"], material_blur: "ultra_thin" }, icon: { data: "🐉", type: "emoji" }, max_lines: 1, text: "Rank Thân Thiết: Thách Đấu", text_color: "#FFFFFF", type: "static_content" } },
-                { overlay_id: "caption:rank_bat_tu", source: "remote", caption: { background: { colors: ["#0F0C29", "#302B63", "#24243E"], material_blur: "ultra_thin" }, icon: { data: "⚡", type: "emoji" }, max_lines: 1, text: "Rank Thân Thiết: Bất Tử Vĩnh Cửu", text_color: "#00F2FE", type: "static_content" } }
+                { overlay_id: "caption:live", source: "local", caption: { type: "live" } },
+                { overlay_id: "caption:locket_count", source: "local", caption: { type: "locket_count" } }
             ]
         },
         {
@@ -606,6 +423,19 @@ if (ua.includes("Locket")) {
                 { overlay_id: "caption:ecu_tuning", source: "remote", caption: { background: { colors: ["#000000", "#0A2E36"], material_blur: "ultra_thin" }, icon: { type: "sf_symbol", data: "cpu.fill", color: "#00FF87" }, max_lines: 1, text: "Đã mở tua • Full Công Suất", text_color: "#00FF87", type: "static_content" } },
                 { overlay_id: "caption:gaming_mode", source: "remote", caption: { background: { colors: ["#0F0C29", "#302B63", "#24243E"], material_blur: "ultra_thin" }, icon: { type: "sf_symbol", data: "gamecontroller.fill", color: "#00FF87" }, max_lines: 1, text: "Đang trong trận, đừng gọi!", text_color: "#FFFFFF", type: "static_content" } },
                 { overlay_id: "caption:coding_vibe", source: "remote", caption: { background: { colors: ["#000000", "#130F40"], material_blur: "ultra_thin" }, icon: { type: "sf_symbol", data: "terminal.fill", color: "#38EF7D" }, max_lines: 1, text: "Code chạy rồi, đừng đụng vào!", text_color: "#38EF7D", type: "static_content" } }
+            ]
+        },
+        {
+            section: "🎨 Holiday Caption",
+            items: [
+                { overlay_id: "caption:halloween_2026", source: "remote", caption: { background: { colors: ["#150804", "#C8540D"] }, icon: { data: "🎃", type: "emoji" }, max_lines: 1, text: "Halloween", localized_text: { en: "Halloween", vn: "Halloween" }, text_color: "#FFB182", type: "static_content" } },
+                { overlay_id: "caption:autumn_2026", source: "remote", caption: { background: { colors: ["#FFE0A0", "#F6A53A"] }, icon: { data: "🍂", type: "emoji" }, max_lines: 1, text: "Xin chào Mùa Thu", localized_text: { en: "Xin chào Mùa Thu", vn: "Xin chào Mùa Thu" }, text_color: "#FFFFFF", type: "static_content" } },
+                { overlay_id: "caption:christmas_eve_2026", source: "remote", caption: { background: { colors: ["#2FA85F", "#176B3A"] }, icon: { data: "🕯️", type: "emoji" }, max_lines: 1, text: "Giáng sinh an lành", localized_text: { en: "Giáng sinh an lành", vn: "Giáng sinh an lành" }, text_color: "#FFFFFF", type: "static_content" } },
+                { overlay_id: "caption:christmas_day_2026", source: "remote", caption: { background: { colors: ["#E53935", "#A81818"] }, icon: { data: "🎄", type: "emoji" }, max_lines: 1, text: "Giáng sinh an lành", localized_text: { en: "Giáng sinh an lành", vn: "Giáng sinh an lành" }, text_color: "#FFFFFF", type: "static_content" } },
+                { overlay_id: "caption:new_years_eve_2026", source: "remote", caption: { background: { colors: ["#FFC64B", "#FFEDBF"] }, icon: { data: "🥂", type: "emoji" }, max_lines: 1, text: "Xin chào 2027!", localized_text: { en: "Xin chào 2027!", vn: "Xin chào 2027!" }, text_color: "#643F00", type: "static_content" } },
+                { overlay_id: "caption:new_years_day_2027", source: "remote", caption: { background: { colors: ["#3B00EC", "#823FFF"] }, icon: { data: "💫", type: "emoji" }, max_lines: 1, text: "Xin chào 2027!", localized_text: { en: "Xin chào 2027!", vn: "Xin chào 2027!" }, text_color: "#FFFFFF", type: "static_content" } },
+                { overlay_id: "caption:new_years_day_2027_alternate", source: "remote", caption: { background: { colors: ["#FF0062", "#FF783F"] }, max_lines: 1, text: "2027", text_color: "#FFFFFF", type: "static_content" } },
+                { overlay_id: "caption:no_memory", source: "remote", caption: { background: { image: { type: "image", data: "https://public.locketcamera.com/locket-public/overlays/forgotten_island/forgotten_island_bg.png", source: "url" }, colors: ["#1A1A2E", "#16213E"] }, max_lines: 1, text: "NO MEMORY LEFT BEHIND", text_color: "#FFFFFFE6", type: "static_content" } }
             ]
         },
         {
@@ -934,33 +764,38 @@ if (ua.includes("Locket")) {
         }
     }
 
-    // THUẬT TOÁN BỐC CAPTION TRONG KHO THEO HOÀN CẢNH + NGÀY LỄ
+    // THUẬT TOÁN CHỌN CAPTION TRONG KHO CỦA BẠN THEO HOÀN CẢNH THỰC TẾ
     var contextIds = [];
     if (hours >= 5 && hours < 10) {
+        // Sáng sớm: Cà phê, chào buổi sáng, đi học/đi làm, lên đồ
         contextIds = [
             "caption:good_morning", "caption:ngay_moi_vui_ve", "caption:coffee_time",
             "caption:matcha_latte", "caption:nghien_cuu_khoa_hoc", "caption:ootd",
             "caption:di_lam_vi_dam_me", "caption:hom_nay_slay", "caption:feeling_cute"
         ];
     } else if (hours >= 10 && hours < 14) {
+        // Buổi trưa: Ăn trưa, trà sữa, Mixue, buồn ngủ, nghỉ ngơi
         contextIds = [
             "caption:an_com_chua", "caption:mixue_time", "caption:tien_mua_tra_sua",
             "caption:matcha_latte", "caption:buon_ngu_chua_chiu_ngu", "caption:nhiem_vu_hom_nay_nam_im",
             "caption:nao_bao_tri", "caption:chilling_time", "caption:em_nho_anhh"
         ];
     } else if (hours >= 14 && hours < 18) {
+        // Buổi chiều: Chạy deadline, trà chiều, mua sắm, chiều mưa, thư giãn
         contextIds = [
             "caption:chilling_time", "caption:deadline_ruot", "caption:doi_tru_deadline",
             "caption:tien_mua_tra_sua", "caption:shopping_time", "caption:hoi_chieu_troi_mua",
             "caption:rainy_day", "caption:lyric_binh_yen", "caption:met_moi_can_om"
         ];
     } else if (hours >= 18 && hours < 22) {
+        // Buổi tối: Ăn tối, đi chơi, hẹn hò, lượn phố, xem phim, chiến game
         contextIds = [
             "caption:dinner_time", "caption:di_choi_khong", "caption:dating_time",
             "caption:night_drive", "caption:tuyet_voi_uong_nao", "caption:cinema_time",
             "caption:party_time", "caption:gaming_mode", "caption:muon_duoc_om", "caption:yeu_cuc_dang"
         ];
     } else {
+        // Đêm khuya (22h - 5h sáng): Suy, nhớ người yêu, cú đêm, chuẩn bị đi ngủ
         contextIds = [
             "caption:2am_thoughts", "caption:night_vibes", "caption:goodnight",
             "caption:ngu_ngon", "caption:sweet_dream", "caption:dem_nao_cung_suy",
@@ -969,28 +804,15 @@ if (ua.includes("Locket")) {
         ];
     }
 
+    // Xáo trộn ngẫu nhiên các caption hợp hoàn cảnh để mỗi lần chụp nảy ra một gợi ý mới mẻ
     var shuffledIds = contextIds.slice().sort(function() { return 0.5 - Math.random(); });
 
-    // Nếu hôm nay là Ngày Lễ (ví dụ 20/10, Halloween, Giáng Sinh, Tết...), ưu tiên đẩy Caption của ngày lễ đó lên đầu tiên!
-    if (holidayEvent && holidayEvent.captions) {
-        var holidayCaps = holidayEvent.captions.slice();
-        if (holidayEvent.id === "vn_women_day_20_10") holidayCaps.unshift("caption:holiday_20_10");
-        else if (holidayEvent.id === "teachers_day_20_11") holidayCaps.unshift("caption:holiday_20_11");
-        else if (holidayEvent.id === "valentine_event") holidayCaps.unshift("caption:holiday_valentine");
-        else if (holidayEvent.id === "women_day_8_3") holidayCaps.unshift("caption:holiday_8_3");
-        else if (holidayEvent.id === "vn_liberation_day") holidayCaps.unshift("caption:holiday_30_4");
-        else if (holidayEvent.id === "vn_national_day") holidayCaps.unshift("caption:holiday_2_9");
-
-        shuffledIds = holidayCaps.concat(shuffledIds);
-    }
-
+    // Đẩy các caption hợp hoàn cảnh vào thẳng đầu thanh General để vừa chụp xong là hiện ra ngay
     var pickedItems = [];
-    var addedMap = {};
     for (var m = 0; m < shuffledIds.length; m++) {
         var cid = shuffledIds[m];
-        if (itemMap[cid] && !addedMap[cid]) {
+        if (itemMap[cid]) {
             pickedItems.push(itemMap[cid]);
-            addedMap[cid] = true;
         }
     }
     allSections[0].items = pickedItems.concat(allSections[0].items);
