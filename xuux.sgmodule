@@ -1,0 +1,57 @@
+[General]
+bypass-system = true
+skip-proxy = *.local, *.crashlytics.com, captive.apple.com
+tun-excluded-routes = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12
+
+[Rule]
+AND,((DOMAIN-SUFFIX,googlevideo.com),(PROTOCOL,UDP)),REJECT
+AND,((DOMAIN,youtubei.googleapis.com),(PROTOCOL,UDP)),REJECT
+# Định tuyến Locket & TikTok
+DOMAIN-SUFFIX,locketcamera.com,PROXY
+DOMAIN-SUFFIX,tiktokv.com,PROXY
+DOMAIN-SUFFIX,byteoversea.com,PROXY
+
+[Header Rewrite]
+^https?://api.revenuecat.com/.+/(receipts$|subscribers/?(.*?)*$) header-del x-revenuecat-etag
+^https?://api.revenuecat.com/.+/(receipts$|subscribers/?(.*?)*$) header-del X-RevenueCat-ETag
+http-request ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/user-customization-service\/v1\/customize$ header-del if-none-match
+
+# --- Chuyển vùng Header sang US (Mỹ) cho Locket, Firebase & RevenueCat ---
+http-request ^https?:\/\/.*(locketcamera\.com|googleapis\.com|revenuecat\.com).* header-replace Accept-Language en-US,en;q=0.9
+http-request ^https?:\/\/.*(locketcamera\.com|googleapis\.com|revenuecat\.com).* header-replace X-Country-Code US
+http-request ^https?:\/\/.*(locketcamera\.com|googleapis\.com|revenuecat\.com).* header-replace CF-IPCountry US
+http-request ^https?:\/\/.*(locketcamera\.com|googleapis\.com|revenuecat\.com).* header-replace X-AppEngine-Country US
+http-request ^https?:\/\/.*(locketcamera\.com|googleapis\.com|revenuecat\.com).* header-replace X-AppEngine-Region ca
+http-request ^https?:\/\/.*(locketcamera\.com|googleapis\.com|revenuecat\.com).* header-replace X-AppEngine-City losangeles
+http-request ^https?:\/\/.*(locketcamera\.com|googleapis\.com|revenuecat\.com).* header-replace X-Timezone America/Los_Angeles
+
+[Url Rewrite]
+# Chặn quảng cáo Google Video
+^https?:\/\/[\w-]+\.googlevideo\.com\/(?!(dclk_video_ads|videoplayback\?)).+&oad _ reject-200
+
+# YouTube Ads
+^https?:\/\/(www|s)\.youtube\.com\/api\/stats\/ads _ reject-200
+^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking) _ reject-200
+^https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adcontext _ reject-200
+
+# General Video Ad request
+(^https?:\/\/[\w-]+\.googlevideo\.com\/(?!dclk_video_ads).+?)&ctier=L(&.+?),ctier,(.+) $1$2$3 302
+
+# --- Chuyển vùng URL sang US (Mỹ) ---
+(?<=_region=)(?:VN|CN)(?=&) US 307
+(?<=&mcc_mnc=)(?:452|460)[0-9]{2}(?=&) 310260 307
+^(https?:\/\/[\w.-]+\/(?:tiktok|aweme)\/v\d+\/[\w\/_-]+\?.*?)\b(?:region|carrier_region|sys_region|account_region)=[a-zA-Z]{2}\b(.*) $1region=US&carrier_region=US&sys_region=US&account_region=US$2 302
+(https?:\/\/.*locketcamera\.com\/.*)(?:country|region|countryCode|locale)=(?:VN|vn|vi_VN|vi-VN)(.*) $1country=US$2 302
+
+[Script]
+#LocketGold
+#hostname = api.revenuecat.com, firebaseremoteconfig.googleapis.com
+revenuecat = type=http-response, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[^/]+$), script-path=https://raw.githubusercontent.com/btuuuad/LOCKETGOLD/refs/heads/main/locket_btuuuad.js, requires-body=true, max-size=-1, timeout=60
+deleteHeader = type=http-request, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers), script-path=https://raw.githubusercontent.com/btuuuad/LOCKETGOLD/refs/heads/main/deletehear.js, timeout=60
+locket_rc = type=http-response, pattern=^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+, script-path=https://raw.githubusercontent.com/btuuuad/LOCKETGOLD/refs/heads/main/lcoket2.js, requires-body=true, max-size=-1, timeout=60
+
+[Map Local]
+^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad data-type=text data="" status-code=200
+
+[MITM]
+hostname = %APPEND%, *.locketcamera.com, *.tiktokv.com, *.byteoversea.com, *.googlevideo.com, youtubei.googleapis.com, www.youtube.com, s.youtube.com, -redirector*.googlevideo.com, premium*.truecaller.com, sub.store, api.revenuecat.com, firebaseremoteconfig.googleapis.com, api.rc-backup.com, buy.itunes.apple.com, spclient.wg.spotify.com, *spclient.spotify.com, api-mobile.soundcloud.com, api.picsart.com, us-central1-alight-creative.cloudfunctions.net, api-sub.meitu.com, photos.adobe.io, ap*.intsig.net, api-account.kinemasters.com, api.mr.pixocial.com, newbeee-api.beautyplus.com, user-snow-api.snow.me, h5.xiuxiu.meitu.com, api.xiuxiu.meitu.com, gs-loc.apple.com, gs-loc-cn.apple.com, bluedot.is.autonavi.com, bluedot.is.autonavi.com.gds.alibabadns.com
