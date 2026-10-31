@@ -1,3 +1,6 @@
+#!name=locket-Tubim
+#!desc=Locket Gold, Mở khóa Filter US, 60FPS & Kho Caption Tú Bỉm
+#Shadowrocket Configuration - locket-Tubim
 [General]
 bypass-system = true
 skip-proxy = *.local, *.crashlytics.com
