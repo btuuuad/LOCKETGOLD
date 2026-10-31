@@ -24,7 +24,7 @@ if (typeof $request !== "undefined" && typeof $response === "undefined") {
     $done({ headers: headers, body: reqBody });
 } else {
     // ============================================================
-    // XỬ LÝ HTTP-RESPONSE (LOCKET GOLD, FULL FILTER, 60FPS & CAPTIONS)
+    // XỬ LÝ HTTP-RESPONSE (LOCKET GOLD, FULL FILTER, 60FPS & POPUP TỰ ĐỘNG)
     // ============================================================
     var ua = ($request && $request.headers) ? ($request.headers["User-Agent"] || $request.headers["user-agent"] || "") : "Locket";
     var obj = {};
@@ -46,9 +46,10 @@ if (typeof $request !== "undefined" && typeof $response === "undefined") {
         var hours = now.getHours();
         var day = now.getDate();
         var month = now.getMonth() + 1;
+        var dateKey = "_" + day + "_" + month + "_" + now.getFullYear();
 
         // ============================================================
-        // 0. ENGINE THÔNG BÁO & ANIMATION CHÚC MỪNG NGÀY LỄ TRONG NĂM
+        // 0. ENGINE THÔNG BÁO TỰ ĐỘNG BUNG THEO TỪNG NGÀY (CÀI 1 LẦN - TỰ ĐỘNG HIỆN)
         // ============================================================
         var popupTag = "LOCKET GOLD PRENIUM";
         var popupTitle = "Lên Gold rồi đó cục zàng 😎";
@@ -61,73 +62,86 @@ if (typeof $request !== "undefined" && typeof $response === "undefined") {
             popupTitle = "Chúc Mừng Ngày Phụ Nữ VN 20/10 🌷";
             popupCardTitle = "Luôn xinh đẹp, rạng rỡ & hạnh phúc ✨";
             popupCardBody = "Gửi ngàn lời chúc yêu thương nhất tới bạn 💖";
-            popupCampaign = "holiday_20_10_2026";
+            popupCampaign = "holiday_20_10" + dateKey;
         } else if (month === 10 && day >= 29 && day <= 31) {
             popupTag = "HAPPY HALLOWEEN 🎃";
             popupTitle = "Lễ Hội Hóa Trang Halloween 👻";
             popupCardTitle = "Trick or Treat • Cho kẹo hay bị ghẹo 🍬";
             popupCardBody = "Chúc bạn có một đêm Halloween thật cháy 🔥";
-            popupCampaign = "holiday_halloween_2026";
+            popupCampaign = "holiday_halloween" + dateKey;
         } else if (month === 11 && (day === 19 || day === 20)) {
             popupTag = "TRI ÂN 20/11 🎓";
             popupTitle = "Chúc Mừng Ngày Nhà Giáo VN 20/11 📚";
             popupCardTitle = "Tôn sư trọng đạo • Tri ân thầy cô ✨";
             popupCardBody = "Chúc một ngày lễ 20/11 thật ý nghĩa 💐";
-            popupCampaign = "holiday_20_11_2026";
+            popupCampaign = "holiday_20_11" + dateKey;
         } else if (month === 12 && (day === 24 || day === 25)) {
             popupTag = "MERRY CHRISTMAS 🎄";
             popupTitle = "Giáng Sinh An Lành & Ấm Áp 🎅❄️";
             popupCardTitle = "Chúc bạn mùa Giáng Sinh tràn ngập niềm vui 🦌";
             popupCardBody = "Merry Christmas & Happy Holidays 🎁";
-            popupCampaign = "holiday_christmas_2026";
+            popupCampaign = "holiday_christmas" + dateKey;
         } else if ((month === 12 && day === 31) || (month === 1 && day === 1)) {
             popupTag = "HAPPY NEW YEAR 🎆";
             popupTitle = "Chúc Mừng Năm Mới 2027 🥂✨";
             popupCardTitle = "Khởi đầu mới • Vạn sự hanh thông 💫";
             popupCardBody = "Chúc năm mới tiền vô như nước, tình cảm ngập tràn 💛";
-            popupCampaign = "holiday_newyear_2027";
+            popupCampaign = "holiday_newyear" + dateKey;
         } else if (month === 2 && day >= 5 && day <= 9) {
             popupTag = "CHÚC MỪNG NĂM MỚI 🧧";
             popupTitle = "Cung Chúc Tân Xuân Đinh Mùi 2027 🌸";
             popupCardTitle = "An Khang Thịnh Vượng • Vạn Sự Như Ý 🧧";
             popupCardBody = "Chúc bạn một mùa Tết đoàn viên ấm áp bên gia đình 🎆";
-            popupCampaign = "holiday_tet_2027";
+            popupCampaign = "holiday_tet_" + day + dateKey;
         } else if (month === 2 && day === 14) {
             popupTag = "HAPPY VALENTINE 💘";
             popupTitle = "Lễ Tình Nhân Ngọt Ngào 14/2 🍫💕";
             popupCardTitle = "Chúc tình yêu của bạn luôn đong đầy 🫶";
             popupCardBody = "Ai có đôi thì hạnh phúc, ai độc thân sớm thoát ế nha 💖";
-            popupCampaign = "holiday_valentine_2027";
+            popupCampaign = "holiday_valentine" + dateKey;
         } else if (month === 3 && day === 8) {
             popupTag = "HAPPY WOMEN'S DAY 🌸";
             popupTitle = "Chúc Mừng Quốc Tế Phụ Nữ 8/3 👑";
             popupCardTitle = "Chúc một nửa thế giới luôn slay & tỏa sáng ✨";
             popupCardBody = "Luôn được yêu thương và chiều chuộng mỗi ngày 🌷";
-            popupCampaign = "holiday_8_3_2027";
+            popupCampaign = "holiday_8_3" + dateKey;
         } else if ((month === 4 && day === 30) || (month === 5 && day === 1)) {
             popupTag = "ĐẠI LỄ 30/4 - 1/5 🇻🇳";
             popupTitle = "Chào Mừng Đại Lễ 30/4 & 1/5 🌟";
             popupCardTitle = "Tự hào Việt Nam • Kỳ nghỉ lễ vui vẻ 🇻🇳";
             popupCardBody = "Lên đồ đi chơi xả hơi thôi nào! ✈️";
-            popupCampaign = "holiday_30_4_2027";
+            popupCampaign = "holiday_30_4" + dateKey;
         } else if (month === 6 && day === 1) {
             popupTag = "HAPPY 1/6 🎈";
             popupTitle = "Quốc Tế Thiếu Nhi 1/6 Vui Vẻ 🍭";
             popupCardTitle = "Lớn rồi nhưng vẫn thích nhận quà 1/6 🧸";
             popupCardBody = "Chúc em bé luôn vui tươi và hồn nhiên 🎀";
-            popupCampaign = "holiday_1_6_2027";
+            popupCampaign = "holiday_1_6" + dateKey;
         } else if (month === 9 && day === 2) {
             popupTag = "QUỐC KHÁNH 2/9 🇻🇳";
             popupTitle = "Mừng Tết Độc Lập 2/9 🇻🇳✨";
             popupCardTitle = "Tôi Yêu Việt Nam 🌟";
             popupCardBody = "Chúc bạn kỳ nghỉ Quốc Khánh tràn đầy niềm vui 🎉";
-            popupCampaign = "holiday_2_9_2027";
+            popupCampaign = "holiday_2_9" + dateKey;
         } else if ((now.getDay() === 5 || now.getDay() === 6 || now.getDay() === 0) && hours >= 18) {
             popupTag = "WEEKEND VIBES 🔥";
             popupTitle = "Cuối Tuần Rồi Xõa Thôi Cục Zàng 🍻";
             popupCardTitle = "Lên đồ dạo phố • Chiến game xuyên đêm 🎮🏎️";
             popupCardBody = "Chúc bạn tối cuối tuần thật cháy cùng Locket Tú Bỉm ✨";
-            popupCampaign = "weekend_party_" + day + "_" + month;
+            popupCampaign = "weekend_party" + dateKey;
+        }
+
+        // Tự động bắn thông báo đẩy iOS khi mở app vào ngày lễ
+        if (popupCampaign.indexOf("holiday_") === 0 || popupCampaign.indexOf("weekend_party") === 0) {
+            try {
+                if (typeof $persistentStore !== "undefined" && typeof $notification !== "undefined") {
+                    var lastShown = $persistentStore.read("LOCKET_TUBIM_LAST_POPUP");
+                    if (lastShown !== popupCampaign) {
+                        $notification.post(popupTag + " • Locket Tú Bỉm", popupTitle, popupCardBody);
+                        $persistentStore.write(popupCampaign, "LOCKET_TUBIM_LAST_POPUP");
+                    }
+                }
+            } catch (e) {}
         }
 
         // ============================================================
@@ -240,7 +254,6 @@ if (typeof $request !== "undefined" && typeof $response === "undefined") {
             }
         } catch (e) {}
 
-        // Danh sách toàn bộ ID Filter có thật trên hệ thống Locket / Snap Camera Kit
         var allRealFilterIds = [
             "okay_wig", "influencer", "looks_maxxing", "toothless", "bye_brows",
             "bowling_ball", "blonde_bleached", "beard", "bob_cut", "buns",
@@ -259,7 +272,6 @@ if (typeof $request !== "undefined" && typeof $response === "undefined") {
             "retro_cam", "vhs", "polaroid", "black_and_white", "sepia", "neon_glow"
         ];
 
-        // Tự động gộp thêm bất kỳ filter mới nào mà Server Locket trả về để không bị mất
         if (realServerFilters.picker_filters && Array.isArray(realServerFilters.picker_filters)) {
             for (var i = 0; i < realServerFilters.picker_filters.length; i++) {
                 var fId = realServerFilters.picker_filters[i];
@@ -279,13 +291,11 @@ if (typeof $request !== "undefined" && typeof $response === "undefined") {
             { title: { en: "Holidays", vn: "🎃 Lễ Hội" }, filter_ids: ["easter_bunney_cutout", "easter_chick_cutout", "bearded", "leprechaun", "lucky_face", "sweet_hearts", "elf_cutout", "santa_cutout", "frosty", "pumpkin", "reindeer"] }
         ];
 
-        // Giữ nguyên các nhóm Filter gốc từ server nếu có
         if (realServerFilters.sheet_filters && Array.isArray(realServerFilters.sheet_filters)) {
             defaultSheetFilters = realServerFilters.sheet_filters.concat(defaultSheetFilters);
         }
 
         Object.assign(obj.entries, {
-            // Cờ Bypass Khóa Vùng Filter
             user_country_code: "US",
             detected_country_code: "US",
             country_code: "US",
@@ -307,7 +317,6 @@ if (typeof $request !== "undefined" && typeof $response === "undefined") {
                 area_code_overrides: {}
             }),
 
-            // Cờ kích hoạt Phụ đề & Lời nói khi quay/đăng Video
             video_captions_enabled: "true",
             video_subtitles_enabled: "true",
             auto_video_captions_enabled: "true",
@@ -566,7 +575,7 @@ if (typeof $request !== "undefined" && typeof $response === "undefined") {
         });
 
         // ============================================================
-        // 7. HỆ THỐNG, CACHE & STORAGE CDN
+        // 7. HỆ THỐNG, CACHE & ÉP LÀM MỚI LIÊN TỤC
         // ============================================================
         Object.assign(obj.entries, {
             cdn_domain_replacements: JSON.stringify({ "firebasestorage.googleapis.com": "cdn.locketcamera.com" }),
@@ -585,7 +594,10 @@ if (typeof $request !== "undefined" && typeof $response === "undefined") {
             timestamp_based_history_fetches: "true",
             get_latest_moment_v2: "true",
             fetch_users_from_cloud_function: "true",
-            refresh_interval: "60",
+            refresh_interval: "0",
+            remote_config_refresh_interval: "0",
+            minimum_fetch_interval_seconds: "0",
+            force_refresh_on_foreground: "true",
             firestore_refresh_v2: "true",
             firestore_refresh_v3: "true",
             keychain_access_retries: "true",
@@ -986,70 +998,16 @@ if (typeof $request !== "undefined" && typeof $response === "undefined") {
                     { overlay_id: "caption:mai_tinh_nay_ngu", source: "remote", caption: { background: { colors: ["#343A40", "#6C757D", "#ADB5BD"] }, icon: { data: "💀", type: "emoji" }, max_lines: 1, text: "mai tính, nay ngủ", text_color: "#FFFFFF", type: "static_content" } },
                     { overlay_id: "caption:offline_de_hoi_sinh", source: "remote", caption: { background: { colors: ["#006D77", "#83C5BE", "#EDF6F9"] }, icon: { data: "💤", type: "emoji" }, max_lines: 1, text: "offline để hồi sinh", text_color: "#164E52", type: "static_content" } }
                 ]
-            },
-            {
-                section: "🎨 Chứng nhận của Locket",
-                items: [
-                    { overlay_id: "caption:locket_cuti", source: "remote", caption: { background: { colors: ["#35B5E8", "#19A1D8"] }, icon: { data: "checkmark.seal.fill", type: "sf_symbol" }, max_lines: 1, text: "Locket xác nhận bạn cutii", text_color: "#FFFFFF", type: "static_content" } },
-                    { overlay_id: "caption:locket_xinh", source: "remote", caption: { background: { colors: ["#FFD45C", "#F5B91E"] }, icon: { data: "checkmark.seal.fill", type: "sf_symbol" }, max_lines: 1, text: "Locket xác nhận bạn xjnh gái", text_color: "#FFFFFF", type: "static_content" } },
-                    { overlay_id: "caption:locket_dep", source: "remote", caption: { background: { colors: ["#258DEB", "#1672D4"] }, icon: { data: "checkmark.seal.fill", type: "sf_symbol" }, max_lines: 1, text: "Locket xác nhận bạn đẹp chai", text_color: "#FFFFFF", type: "static_content" } },
-                    { overlay_id: "caption:locket_dangiu", source: "remote", caption: { background: { colors: ["#FF638B", "#F44772"] }, icon: { data: "checkmark.seal.fill", type: "sf_symbol" }, max_lines: 1, text: "Locket xác nhận bạn dangiu", text_color: "#FFFFFF", type: "static_content" } },
-                    { overlay_id: "caption:gai_dep", source: "remote", caption: { background: { colors: ["#FF91AE", "#F8759B"] }, icon: { data: "checkmark.seal.fill", type: "sf_symbol" }, max_lines: 1, text: "Đã xác minh bạn là gái đẹp", text_color: "#FFFFFF", type: "static_content" } },
-                    { overlay_id: "caption:trai_dep", source: "remote", caption: { background: { colors: ["#4A9FEF", "#267DD7"] }, icon: { data: "checkmark.seal.fill", type: "sf_symbol" }, max_lines: 1, text: "Đã xác minh bạn là trai đẹp", text_color: "#FFFFFF", type: "static_content" } },
-                    { overlay_id: "caption:be_ngoan", source: "remote", caption: { background: { colors: ["#E9B9C5", "#D9A4B3"] }, icon: { data: "checkmark.seal.fill", type: "sf_symbol" }, max_lines: 1, text: "Đã xác nhận bạn là bé ngoan", text_color: "#FFFFFF", type: "static_content" } },
-                    { overlay_id: "caption:tuyen_duong", source: "remote", caption: { background: { colors: ["#D94A77", "#B82D59"] }, icon: { data: "checkmark.seal.fill", type: "sf_symbol" }, max_lines: 1, text: "Locket tuyên dương bạn cute", text_color: "#FFFFFF", type: "static_content" } }
-                ]
-            },
-            {
-                section: "🎨 Tâm Trạng & Suy 🌧️",
-                items: [
-                    { overlay_id: "caption:ngoai_gia_nhung_nang_long", source: "remote", caption: { background: { colors: ["#2C3E50", "#4CA1AF"] }, icon: { data: "🌧️", type: "emoji" }, max_lines: 1, text: "ngoài giả vờ trưởng thành, trong âm thầm vụn vỡ", text_color: "#FFFFFFE6", type: "static_content" } },
-                    { overlay_id: "caption:ap_luc_nhung_im_lang", source: "remote", caption: { background: { colors: ["#141E30", "#243B55"] }, icon: { data: "🎧", type: "emoji" }, max_lines: 1, text: "im lặng không phải là ổn, mà là chẳng biết kể cùng ai", text_color: "#FFFFFFE6", type: "static_content" } },
-                    { overlay_id: "caption:chua_lanh", source: "remote", caption: { background: { colors: ["#D4FC79", "#96E6A1"] }, icon: { data: "🌱", type: "emoji" }, max_lines: 1, text: "đi chữa lành nhưng ví rách lành chưa?", text_color: "#1B4332", type: "static_content" } },
-                    { overlay_id: "caption:dem_nao_cung_suy", source: "remote", caption: { background: { colors: ["#0F2027", "#203A43", "#2C5364"] }, icon: { data: "🌙", type: "emoji" }, max_lines: 1, text: "ban ngày cười nói, ban đêm suy tới sáng", text_color: "#FFFFFFE6", type: "static_content" } },
-                    { overlay_id: "caption:tuoi_tre_chua_kip_chill", source: "remote", caption: { background: { colors: ["#E0C3FC", "#8EC5FC"] }, icon: { data: "😮‍💨", type: "emoji" }, max_lines: 1, text: "lớn rồi mới biết, bình yên đắt giá đến nhường nào", text_color: "#2B2D42", type: "static_content" } },
-                    { overlay_id: "caption:overthinking", source: "remote", caption: { background: { colors: ["#4B6CB7", "#182848"] }, icon: { data: "🌀", type: "emoji" }, max_lines: 1, text: "bề ngoài vô tư, bên trong overthinking", text_color: "#FFFFFFE6", type: "static_content" } },
-                    { overlay_id: "caption:chi_muon_bien_mat", source: "remote", caption: { background: { colors: ["#8E9EAB", "#EEF2F3"] }, icon: { data: "🌫️", type: "emoji" }, max_lines: 1, text: "có những ngày chỉ muốn tắt nguồn cả thế giới", text_color: "#2C3E50", type: "static_content" } },
-                    { overlay_id: "caption:nguoi_la_tung_quen", source: "remote", caption: { background: { colors: ["#3A1C71", "#D76D77", "#FFAF7B"] }, icon: { data: "🥀", type: "emoji" }, max_lines: 1, text: "từ người thương hóa người dưng ngược lối", text_color: "#FFFFFFE6", type: "static_content" } },
-                    { overlay_id: "caption:co_don_giua_pho", source: "remote", caption: { background: { colors: ["#1F1C2C", "#928DAB"] }, icon: { data: "🌃", type: "emoji" }, max_lines: 1, text: "thành phố thì lớn, mà sao lòng mình chật chội thế", text_color: "#FFFFFFE6", type: "static_content" } },
-                    { overlay_id: "caption:mot_minh_van_on", source: "remote", caption: { background: { colors: ["#F6D365", "#FDA085"] }, icon: { data: "☕", type: "emoji" }, max_lines: 1, text: "một mình cũng tốt, đỡ phải mong chờ", text_color: "#5C2A1A", type: "static_content" } },
-                    { overlay_id: "caption:met_moi_can_om", source: "remote", caption: { background: { colors: ["#C9D6FF", "#E2E2E2"] }, icon: { data: "🔋", type: "emoji" }, max_lines: 1, text: "năng lượng cạn kiệt, cần một cái ôm", text_color: "#333533", type: "static_content" } },
-                    { overlay_id: "caption:dung_giao_tiep", source: "remote", caption: { background: { colors: ["#434343", "#000000"] }, icon: { data: "🔕", type: "emoji" }, max_lines: 1, text: "tạm ngưng kết nối, xin đừng làm phiền", text_color: "#FFFFFFE6", type: "static_content" } }
-                ]
-            },
-            {
-                section: "🎨 Lyric Music 🎵",
-                items: [
-                    { overlay_id: "caption:lyric_vi_ham_me_giau_sang", source: "remote", caption: { background: { colors: ["#200122", "#6F0000"] }, icon: { data: "💸", type: "emoji" }, max_lines: 1, text: "Vì ham mê giàu sang, Kiều bán đi hạnh phúc đời mình", text_color: "#FFFFFFE6", type: "static_content" } },
-                    { overlay_id: "caption:lyric_vi_ham_me_giau_sang_ngan", source: "remote", caption: { background: { colors: ["#232526", "#414345"] }, icon: { data: "🥀", type: "emoji" }, max_lines: 1, text: "Vì ham mê giàu sang...", text_color: "#FFD700", type: "static_content" } },
-                    { overlay_id: "caption:lyric_dung_lam_trai_tim_anh_dau", source: "remote", caption: { background: { colors: ["#FF9A9E", "#FECFEF"] }, icon: { data: "💔", type: "emoji" }, max_lines: 1, text: "Đừng làm trái tim anh đau...", text_color: "#6B1D2F", type: "static_content" } },
-                    { overlay_id: "caption:lyric_binh_yen", source: "remote", caption: { background: { colors: ["#A1C4FD", "#C2E9FB"] }, icon: { data: "🍃", type: "emoji" }, max_lines: 1, text: "Bình yên một thoáng cho tim mềm...", text_color: "#1D3557", type: "static_content" } },
-                    { overlay_id: "caption:lyric_mong_yu", source: "remote", caption: { background: { colors: ["#A18CD1", "#FBC2EB"] }, icon: { data: "☁️", type: "emoji" }, max_lines: 1, text: "Hẹn gặp lại anh ở trong những giấc mơ", text_color: "#4A2545", type: "static_content" } },
-                    { overlay_id: "caption:lyric_tung_quen", source: "remote", caption: { background: { colors: ["#667EEA", "#764BA2"] }, icon: { data: "🎵", type: "emoji" }, max_lines: 1, text: "Giờ thì mình là ai trong cuộc đời nhau?", text_color: "#FFFFFFE6", type: "static_content" } },
-                    { overlay_id: "caption:lyric_nhung_loi_hua_bo_quen", source: "remote", caption: { background: { colors: ["#B79891", "#94716B"] }, icon: { data: "🍂", type: "emoji" }, max_lines: 1, text: "Những lời hứa bỏ quên...", text_color: "#FFFFFFE6", type: "static_content" } },
-                    { overlay_id: "caption:lyric_sau_con_mua", source: "remote", caption: { background: { colors: ["#4CA1AF", "#C4E0E5"] }, icon: { data: "🌧️", type: "emoji" }, max_lines: 1, text: "Trời lại nắng sau cơn mưa mà...", text_color: "#1B3B44", type: "static_content" } },
-                    { overlay_id: "caption:lyric_thien_ly_oi", source: "remote", caption: { background: { colors: ["#FDFCFB", "#E2D1C3"] }, icon: { data: "🌼", type: "emoji" }, max_lines: 1, text: "Thiên lý ơi, em có thể ở lại đây không?", text_color: "#5C4033", type: "static_content" } },
-                    { overlay_id: "caption:lyric_cat_doi_noi_sau", source: "remote", caption: { background: { colors: ["#232526", "#414345"] }, icon: { data: "✂️", type: "emoji" }, max_lines: 1, text: "Cắt đôi nỗi sầu, anh buông tay cắt đôi nỗi sầu", text_color: "#FFFFFFE6", type: "static_content" } },
-                    { overlay_id: "caption:lyric_id_072019", source: "remote", caption: { background: { colors: ["#2B5876", "#4E4376"] }, icon: { data: "⏳", type: "emoji" }, max_lines: 1, text: "Có người đứng từ xa chờ em về...", text_color: "#FFFFFFE6", type: "static_content" } },
-                    { overlay_id: "caption:lyric_cho_toi_di_theo", source: "remote", caption: { background: { colors: ["#FFECD2", "#FCB69F"] }, icon: { data: "🌅", type: "emoji" }, max_lines: 1, text: "Cho tôi đi theo với, nơi anh đi về...", text_color: "#6B2D18", type: "static_content" } },
-                    { overlay_id: "caption:lyric_co_em", source: "remote", caption: { background: { colors: ["#FF9A9E", "#FAD0C4"] }, icon: { data: "🌷", type: "emoji" }, max_lines: 1, text: "Từ ngày có em về, nhà mình toàn ánh trăng thề", text_color: "#73222B", type: "static_content" } },
-                    { overlay_id: "caption:lyric_exit_sign", source: "remote", caption: { background: { colors: ["#000000", "#130F40"] }, icon: { data: "🚪", type: "emoji" }, max_lines: 1, text: "Bởi vì anh đã tìm được lối thoát cho riêng mình...", text_color: "#FFFFFFE6", type: "static_content" } },
-                    { overlay_id: "caption:lyric_khong_the_say", source: "remote", caption: { background: { colors: ["#3E5151", "#DECBA4"] }, icon: { data: "🥃", type: "emoji" }, max_lines: 1, text: "Anh đã cố để quên em mà không thể say", text_color: "#FFFFFFE6", type: "static_content" } },
-                    { overlay_id: "caption:lyric_hen_gap_em_duoi_anh_trang", source: "remote", caption: { background: { colors: ["#141E30", "#2A5298"] }, icon: { data: "🌕", type: "emoji" }, max_lines: 1, text: "Hẹn gặp em dưới ánh trăng...", text_color: "#FFFFFFE6", type: "static_content" } },
-                    { overlay_id: "caption:lyric_no_in_my_eyes", source: "remote", caption: { background: { colors: ["#536976", "#292E49"] }, icon: { data: "👀", type: "emoji" }, max_lines: 1, text: "Nhìn vào đôi mắt em, thấy cả bầu trời...", text_color: "#FFFFFFE6", type: "static_content" } },
-                    { overlay_id: "caption:lyric_chuyen_doi_ta", source: "remote", caption: { background: { colors: ["#D3CCE3", "#E9E4F0"] }, icon: { data: "📖", type: "emoji" }, max_lines: 1, text: "Chuyện đôi ta như những thước phim quay chậm", text_color: "#3F3351", type: "static_content" } }
-                ]
             }
         ];
 
-        // Sắp xếp động (Dynamic Sorting) dựa trên thời gian & sự kiện
         var priorityNames = ["🎨 General"];
         if (popupCampaign.indexOf("holiday_") === 0) {
             priorityNames.push("🎉 Chúc Mừng Ngày Lễ (Holiday Events) 🎆");
         }
         if (hours >= 22 || hours < 4) {
             priorityNames.push("🎨 Tâm Trạng & Suy 🌧️", "🎨 Lyric Music 🎵");
-        } else if (popupCampaign.indexOf("weekend_party_") === 0) {
+        } else if (popupCampaign.indexOf("weekend_party") === 0) {
             priorityNames.push("🏎️ Speed, Gaming & Coding 🎮", "🎵 TikTok Trends & Vibes 🔥");
         }
 
@@ -1088,4 +1046,5 @@ if (typeof $request !== "undefined" && typeof $response === "undefined") {
     }
 
     $done({ body: JSON.stringify(obj) });
+}
 }
